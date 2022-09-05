@@ -33,9 +33,12 @@ td{
     width : 150px;
     height : 30px;
     vertical-align:middle;
+    font-size: 25px;
 }
 #guess_button{
     border-radius : 10px;
     font-size: 25px;
     vertical-align:middle;
+    width : 100px;
+    height: 40px;
 }
