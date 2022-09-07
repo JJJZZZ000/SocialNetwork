@@ -71,6 +71,7 @@ function submit(){
         status_change("You lose!");
         return;
     }
+    status_change("You have "+(6-row_idx)+" chances");
 }
 function fill(row_num, colors){
     var row = rows[row_num];
