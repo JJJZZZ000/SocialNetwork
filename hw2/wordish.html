@@ -3,27 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Wordish</title>
-    <link rel="stylesheet" href="wordish.css">
-    <script>
-        var target;
-        function start(){
-            status_change("Welcome to Wordish");
-            var target = document.getElementById("target_text").value;
-            if(!isValidWord()){
-
-            }
-        }
-        function isValidWord(word){
-            if(word.length != 5)
-        }
-        function status_change(msg){
-            var status = document.getElementById("status");
-            status.innerHTML = msg;
-        }
-        function guess(){
-            var guess_text =
-        }
-    </script>
+    <link rel="stylesheet" href="css/wordish.css">
+    <script type="text/javascript" src="./js/wordish.js"></script>
 </head>
 <body>
     <div id = "target">
@@ -82,7 +63,7 @@
     <div id = "guess">
         Guess:
         <input id = "guess_text">
-        <button id = "guess_button">Submit</button>
+        <button id = "guess_button" onclick="submit()">Submit</button>
     </div>
 
 </div>
