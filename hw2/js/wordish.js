@@ -7,11 +7,10 @@ function start(){
     target = "";
     target_dic = {}
     rows = document.getElementsByTagName("tr");
-
-    status_change("Welcome to Wordish");
+    status_change("start");
     target = document.getElementById("target_text").value;
     if(!isValidWord(target)){
-        status_change("Invalid target");
+        status_change("Invalid target input");
         return;
     }
     var cells = document.getElementsByTagName("td");
@@ -27,7 +26,6 @@ function start(){
         }
         target_dic[ch] = target_dic[ch]+1;
     }
-    status_change("start");
 }
 function isValidWord(word){
     if(word.length !== 5) return false;
