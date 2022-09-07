@@ -12,12 +12,14 @@ function start(){
     target = document.getElementById("target_text").value;
     if(!isValidWord(target)){
         status_change("Invalid target");
+        return;
     }
     var cells = document.getElementsByTagName("td");
     for(let i = 0; i < cells.length; i++){
         var cell = cells[i];
         cell.innerText = null;
     }
+
     for(let i = 0; i < target.length; i++){
         var ch = target.charAt(i);
         if(target_dic[ch] == null){
