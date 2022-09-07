@@ -17,6 +17,7 @@ function start(){
     for(let i = 0; i < cells.length; i++){
         var cell = cells[i];
         cell.innerText = null;
+        cell.style.background = "white";
     }
 
     for(let i = 0; i < target.length; i++){
