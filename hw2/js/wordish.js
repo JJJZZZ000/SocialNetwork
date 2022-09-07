@@ -3,6 +3,11 @@ var row_idx = 0;
 var target_dic = {}
 var rows = document.getElementsByTagName("tr");
 function start(){
+    row_idx = 0;
+    target = "";
+    target_dic = {}
+    rows = document.getElementsByTagName("tr");
+
     status_change("Welcome to Wordish");
     target = document.getElementById("target_text").value;
     if(!isValidWord(target)){
@@ -20,7 +25,7 @@ function start(){
         }
         target_dic[ch] = target_dic[ch]+1;
     }
-    status_change("Wordish");
+    status_change("start");
 }
 function isValidWord(word){
     if(word.length !== 5) return false;
