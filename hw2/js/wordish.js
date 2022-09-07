@@ -42,11 +42,11 @@ function status_change(msg){
 function submit(){
     var guess = document.getElementById("guess_text").value;
     if(target == null){
-        status_change("Invalid target");
+        status_change("Invalid target input");
         return;
     }
     if(!isValidWord(guess)){
-        status_change("Invalid guess");
+        status_change("Invalid guess input");
         return;
     }
     var colors = check(target, guess);
