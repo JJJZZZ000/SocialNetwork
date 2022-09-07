@@ -40,10 +40,6 @@ function submit(){
         status_change("No target");
         return;
     }
-    if(row_idx >= document.getElementsByTagName("tr").length){
-        status_change("You lose!");
-        return;
-    }
 
     var colors = check(target, guess);
     fill(row_idx, colors);
@@ -51,7 +47,6 @@ function submit(){
         var row = rows[row_idx];
         row.children[i].innerHTML = guess.charAt(i);
     }
-    row_idx++;
     var win = true;
     for(let i = 0; i < 5; i++){
         if(colors[i] !== "green"){
@@ -61,6 +56,12 @@ function submit(){
     }
     if(win){
         status_change("You win!");
+        return;
+    }
+    row_idx++;
+    if(row_idx >= document.getElementsByTagName("tr").length){
+        status_change("You lose!");
+        return;
     }
 }
 function fill(row_num, colors){
