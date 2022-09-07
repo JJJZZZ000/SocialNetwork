@@ -20,7 +20,7 @@ function start(){
         }
         target_dic[ch] = target_dic[ch]+1;
     }
-    status_change("Welcome to Wordish： START");
+    status_change("Wordish");
 }
 function isValidWord(word){
     if(word.length !== 5) return false;
