@@ -20,7 +20,7 @@ function start(){
         }
         target_dic[ch] = target_dic[ch]+1;
     }
-
+    status_change("Welcome to Wordish： START");
 }
 function isValidWord(word){
     if(word.length !== 5) return false;
@@ -37,10 +37,13 @@ function status_change(msg){
 function submit(){
     var guess = document.getElementById("guess_text").value;
     if(target == null){
-        status_change("No target");
+        status_change("Invalid target");
         return;
     }
-
+    if(!isValidWord(guess)){
+        status_change("Invalid guess");
+        return;
+    }
     var colors = check(target, guess);
     fill(row_idx, colors);
     for(let i = 0; i < 5; i++){
