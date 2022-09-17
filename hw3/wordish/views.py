@@ -28,11 +28,14 @@ def _checkHistory(word):
     try:
         _check(word)
     except:
-        raise invalidWord("error invalid: Hack happened, restart the game")
+        raise invalidWord("Error invalid: Hack happened, restart the game")
 
 
 def _process_param(post, name):
-    return post[name]
+    try:
+        return post[name]
+    except:
+        return invalidWord("Error invalid: target changed")
 
 
 def initMatrix():
