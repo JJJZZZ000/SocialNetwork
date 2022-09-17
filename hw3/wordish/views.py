@@ -153,14 +153,3 @@ def getColor(target, guess, target_dic):
     return colors
 
 
-matrix = initMatrix()
-target = "aloft"
-history_ls = ["ulcer"]
-## construct the matrix below
-target_dic = {}
-for i in range(5):
-    ch = target[i]
-    if not target_dic.__contains__(ch):
-        target_dic[ch] = 0
-    target_dic[ch] = target_dic[ch] + 1
-
