@@ -28,7 +28,7 @@ def _checkHistory(word):
     try:
         _check(word)
     except:
-        raise invalidWord("Hack happened, restart the game")
+        raise invalidWord("error invalid: Hack happened, restart the game")
 
 
 def _process_param(post, name):
@@ -69,9 +69,6 @@ def guess(request):
     if request.method == 'GET':
         context["msg"] = "Welcome to wordish"
         return render(request, 'home.html', context)
-
-
-
     try:
         ## check history data
         target = _process_param(request.POST, "target")
@@ -96,10 +93,9 @@ def guess(request):
             colors = getColor(target, old_guess, target_dic)
             # "background-color: white"
             for j in range(len(matrix[i])):
-                cell = matrix[i][j]
-                color = colors[i]
-                cell["letter"] = old_guess[j]
-                cell["color"] = "background-color: " + color
+                color = colors[j]
+                matrix[i][j]["letter"] = old_guess[j]
+                matrix[i][j]["color"] = "background-color: " + color
 
         context = {
             "msg": "Game begins",
@@ -157,4 +153,14 @@ def getColor(target, guess, target_dic):
     return colors
 
 
-#
+matrix = initMatrix()
+target = "aloft"
+history_ls = ["ulcer"]
+## construct the matrix below
+target_dic = {}
+for i in range(5):
+    ch = target[i]
+    if not target_dic.__contains__(ch):
+        target_dic[ch] = 0
+    target_dic[ch] = target_dic[ch] + 1
+
