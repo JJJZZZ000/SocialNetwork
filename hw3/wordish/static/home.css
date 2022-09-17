@@ -1,0 +1,71 @@
+#border{
+    border:solid;
+    text-align:center;
+    width : 500px;
+    height : 600px;
+    align-content: center;
+}
+#target{
+    border:solid;
+    text-align:center;
+    width : 500px;
+    height : 200px;
+    align-content: center;
+}
+#target_input{
+    margin-top: 30px;
+}
+#message{
+    font-size: 30px;
+    background-color: lightgray;
+    border: solid;
+    display:inline-block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+table{
+    margin : 0 auto;
+    border-collapse:separate;
+    border-spacing: 10px 10px;
+}
+td{
+    text-align:center;
+    background-color: white;
+    border: solid;
+    width : 40px;
+    height : 40px;
+}
+#guess{
+    margin-top: 30px;
+    font-size: 25px;
+}
+#target{
+    margin-top: 30px;
+    font-size: 25px;
+}
+#guess_text{
+    width : 150px;
+    height : 30px;
+    vertical-align:middle;
+    font-size: 25px;
+}
+#target_text{
+    width : 150px;
+    height : 30px;
+    vertical-align:middle;
+    font-size: 25px;
+}
+#guess_button{
+    border-radius : 10px;
+    font-size: 25px;
+    vertical-align:middle;
+    width : 100px;
+    height: 40px;
+}
+#start_button{
+    border-radius : 10px;
+    font-size: 25px;
+    vertical-align:middle;
+    width : 100px;
+    height: 40px;
+}
