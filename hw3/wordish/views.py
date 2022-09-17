@@ -66,6 +66,14 @@ def home(request):
         context = {"msg": str(e)}
         return render(request, 'home.html', context)
 
+def deserialize(request):
+    try:
+        history = _process_param(request.POST, "history")
+        history = history.replace("\'", "\"")
+        history_ls = json.loads(history)
+        return history_ls
+    except:
+        raise invalidWord("Error: deserialize")
 
 def guess(request):
     context = {}
@@ -76,9 +84,7 @@ def guess(request):
         ## check history data
         target = _process_param(request.POST, "target")
         _checkHistory(target)
-        history = _process_param(request.POST, "history")
-        history = history.replace("\'", "\"")
-        history_ls = json.loads(history)
+        history_ls = deserialize(request)
         for old_guess in history_ls:
             _checkHistory(old_guess)
 
