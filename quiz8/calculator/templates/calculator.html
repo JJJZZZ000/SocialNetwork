@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		button, input, label, .errorlist, .message, p, li, kbd { font-size: x-large; }
+		p, li { font-family: serif; }
+		.message { font-size: xx-large; font-family: sans-serif; padding: 10px;}
+		.errorlist { color:red; }
+		kbd { background-color: #eeeeee; }
+		li { padding: 3px; }
+		span { font-family: sans-serif; font-size: xx-large; padding: 40px; }
+		form { background-color: lightblue; width: auto; padding: 20px; }
+	</style>
+</head>
+<body>
+	<h1>Lecture #8 Quiz</h1>
+	<hr/>
+	<table>
+		<tr>
+	    	<td colspan="2" class="message">
+	    		{{message}}
+	    	</td>
+	    </tr>
+		<tr>
+			<td>
+				<form method="POST" >
+					{%csrf_token%}
+					<table>
+						{{form}}
+						<tr>
+							<td><button type="submit" name="op" value="divide">&divide;</button></td>
+						</tr>
+					</table>
+				</form>
+			</td>
+			<td>
+				<span>&larr; Build this, using a Django Form</span>
+			</td>
+		</tr>
+	</table>
+	<hr/>
+	<p>
+		For this quiz, create a <kbd>quiz8</kbd> directory at the top of your class repo and, in it, build simple calculator that uses a Django Form to prompt for two integer numbers and then divides them.
+		<ul>
+			<li>The page should look and operate roughly like the form, above. (Be sure to check for dividing by zero by adding the appropriate clean function to the form.)</li>
+			<li>You may add CSS, but this is totally optional. (Feel free to copy the CSS from this page, if you like.)</li>
+			<li>In the templated view, you may generate the form using <kbd>{{ form }}</kbd> or by iterating over <kbd>{{ form.visible_fields }}</kbd>.</li>
+			<li>You may copy code from your HW#3, or from any of the class examples
+				(most helpful will be <a href="https://github.com/cmu-webapps/django-intro.git">django-intro</a> and <a href="https://github.com/cmu-webapps/forms-example.git">forms-example</a>).</li>
+			<li>If you can get the form to work, try using the element inspector to change the inputs to be optional or non-numeric. Does your Django form handle this hacked input?</li>
+			<li>When you're done, <kbd>git add</kbd>, <kbd>git commit</kbd> and <kbd>git push</kbd> your <kbd>quiz8</kbd> project directory to GitHub.</li>
+		</ul>
+	</p>
+	<hr>
+	<p>
+		In case it's helpful, here are the steps to set up the new project for this quiz:
+		<ol>
+			<li><kbd>cd</kbd> to the top of your class repo</li>
+			<li><kbd>mkdir quiz8</kbd></li>
+			<li><kbd>cd quiz8</kbd></li>
+			<li><kbd>django-admin startproject webapps .</kbd> (&larr; don't forget the ".")</li>
+			<li><kbd>python3 manage.py startapp calculator</kbd></li>
+			<li>add calculator to <kbd>INSTALLED_APPS</kbd> in <kbd>settings.py</kbd></li>
+			<li>add a mapping to <kbd>views.calculator</kbd> in <kbd>urls.py</kbd></li>
+			<li>add <kbd>def calculator(request)</kbd> to <kbd>views.py</kbd></li>
+			<li>create a <kbd>forms.py</kbd> file with one Django <kbd>Form</kbd> with two <kbd>IntegerField</kbd>s, X & Y</li>
+			<li>create a <kbd>calculator.html</kbd> templated view to display the form</li>
+			<li>You should now be able to test the "GET" case and show the empty form</li>
+			<li>Add the "POST" case to your <kbd>views.py</kbd></li>
+			<li>Try submitting correct parameters and displaying the result of the division.</li>
+			<li>Check the validity of the instantiated form, display errors. (There should be a <kbd>clean_y</kbd> function in your Django form object that raises a <kbd>ValidationError</kbd> if Y is zero.)</li>
+			<li>Don't forget to <kbd>git add</kbd>, <kbd>git commit</kbd> and <kbd>git push</kbd> your <kbd>quiz8</kbd> project directory to GitHub.</li>
+		</ol>
+	</p>
+</body>
+</html>

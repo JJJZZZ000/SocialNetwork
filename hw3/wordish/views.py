@@ -15,6 +15,7 @@ class invalidWord(Exception):
         return self.msg
 
 
+
 def _check(word):
     if len(word) != 5:
         raise invalidWord("Invalid input: Word length error")
@@ -162,3 +163,5 @@ def getColor(target, guess, target_dic):
     return colors
 
 
+s = ""
+print(s.split(","))
