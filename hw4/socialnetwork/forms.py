@@ -24,10 +24,10 @@ class RegisterForm(forms.Form):
     email = forms.CharField(max_length=50,
                             widget=forms.EmailInput())
     username = forms.CharField(max_length=20)
-    password1 = forms.CharField(max_length=200,
+    password = forms.CharField(max_length=200,
                                 label='Password',
                                 widget=forms.PasswordInput())
-    password2 = forms.CharField(max_length=200,
+    confirm_password = forms.CharField(max_length=200,
                                 label='Confirm password',
                                 widget=forms.PasswordInput())
 
