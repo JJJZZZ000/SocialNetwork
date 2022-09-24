@@ -60,7 +60,7 @@ def register_action(request):
     new_user = authenticate(username=form.cleaned_data['username'],
                             password=form.cleaned_data['password'])
 
-    # login(request, new_user)
+    login(request, new_user)
     return redirect(reverse('home'))
 
 
