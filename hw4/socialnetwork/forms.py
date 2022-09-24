@@ -39,8 +39,8 @@ class RegisterForm(forms.Form):
         cleaned_data = super().clean()
 
         # Confirms that the two password fields match
-        password1 = cleaned_data.get('password1')
-        password2 = cleaned_data.get('password2')
+        password1 = cleaned_data.get('password')
+        password2 = cleaned_data.get('confirm_password')
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords did not match.")
 
