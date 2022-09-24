@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static%}
+    <link href="{% static 'socialnetwork/base.css' %}" rel="stylesheet" type="text/css">
+
+    <title> {% block title %} Social Network {% endblock %} </title>
+</head>
+<body>
+    <div class = 'head' id="id_header_div">
+        <div class="big-heading" id="id_site_name">
+			Blog Master
+		</div>
+	    <div class="user-info">
+			{% block user-info %}
+			{% endblock %}
+	    </div>
+    </div>
+
+    <div class="page" id="id_page_name">
+        {% block page %}
+        {% endblock %}
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

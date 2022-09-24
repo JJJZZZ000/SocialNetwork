@@ -1,0 +1,43 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div id="id_nav_profile">
+        <a href="{% url 'my_profile' %}">
+            {{ name }}
+        </a>
+    </div>
+    <div id="option">
+        <div id="id_nav_global_stream">
+        <a href="{% url 'global_stream' %}">
+            Global
+        </a>
+        </div>
+        <div id="id_nav_follower_stream">
+            <a href="{% url 'follower_stream' %}">
+                Follower
+            </a>
+        </div>
+        <div id="id_nav_logout">
+            <a href="{% url 'logout' %}">
+                Logout
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page %}
+Profile page for {{ name }}
+{% endblock %}
+
+{% block content%}
+    {% load static%}
+    <img id="id_user_picture" src="{% static 'profile.jpg' %}">
+    <form action="{% url 'my_profile' %}" method="POST">
+        <textarea id="id_bio_input_text" name="bio" >{{ bio }}</textarea><br>
+        Profile Picture:<input type="file" id="id_profile_picture"><br>
+        <button type="submit" id="id_update_profile_button">Submit</button>
+    {% csrf_token %}
+    </form>
+    You are following:<br>
+    <a href="{% url 'personal_profile' %}" id="id_profile_link_1">Farnam Jahanian</a>
+{% endblock %}

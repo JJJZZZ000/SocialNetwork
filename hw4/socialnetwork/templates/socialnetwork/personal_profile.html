@@ -1,0 +1,40 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div id="id_nav_profile">
+        <a href="{% url 'my_profile' %}">
+            {{ name }}
+        </a>
+    </div>
+    <div id="option">
+        <div id="id_nav_global_stream">
+        <a href="{% url 'global_stream' %}">
+            Global
+        </a>
+        </div>
+        <div id="id_nav_follower_stream">
+            <a href="{% url 'follower_stream' %}">
+                Follower
+            </a>
+        </div>
+        <div id="id_nav_logout">
+            <a href="{% url 'logout' %}">
+                Logout
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page %}
+Profile page for {{ username }}
+{% endblock %}
+
+{% block content%}
+    {% load static%}
+    <img id="id_user_picture" src="{% static 'profile.jpg' %}">
+    <textarea id="id_bio_input_text">{{ bio }}</textarea><br>
+    <form action="{% url 'my_profile' %}" method="POST">
+        <button type="submit" id="id_unfollow">Unfollow</button>
+    {% csrf_token %}
+    </form>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div id="id_nav_profile">
+        <a href="{% url 'my_profile' %}">
+            {{ name }}
+        </a>
+    </div>
+    <div id="option">
+        <div id="id_nav_global_stream">
+        <a href="{% url 'global_stream' %}">
+            Global
+        </a>
+        </div>
+        <div id="id_nav_follower_stream">
+            <a href="{% url 'follower_stream' %}">
+                Follower
+            </a>
+        </div>
+        <div id="id_nav_logout">
+            <a href="{% url 'logout' %}">
+                Logout
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page %}
+Global Stream
+{% endblock %}
+
+{% block content%}
+    <form method="post" action="{% url 'global_stream' %}">
+        <lable for="id_post_input_text">New Post:</lable>
+        <input type="text" name="new_post" id="id_post_input_text">
+        {% csrf_token %}
+        <button type="submit">Submit</button>
+    </form>
+    <div id="id_post_div_1">
+        Post by <a id="id_post_profile_n" href="{% url 'personal_profile'%}">Jeff Eppinger</a> -<span id="id_post_text_1">I waited in line for 15 minutes to get my lunch</span> – <span id="id_post_date_time_1">8/25/2021 12:10 PM</span>
+        <div id="id_comment_div_1">Comment by <a id="id_comment_profile_1" href="{% url 'personal_profile'%}">Farnam Jahanian</a> -<span id=" id_comment_text_k">Just come to my place. I’ll feed you.</span> - <span id=" id_comment_date_time_1">8/25/2021 1:13 PM</span></div>
+        <form method="post" action="{% url 'global_stream' %}">
+            <lable for="id_comment_input_text_1">New Post:</lable>
+            <input type="text" name="new_comment" id="id_comment_input_text_1">
+            {% csrf_token %}
+            <button id="id_comment_button_n" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}
