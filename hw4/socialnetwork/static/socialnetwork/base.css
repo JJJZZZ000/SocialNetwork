@@ -25,6 +25,6 @@ input{
     /*align-content: center;*/
     background-color: cornflowerblue;
 }
-#option{
-
+button{
+    font-size: 20px;
 }

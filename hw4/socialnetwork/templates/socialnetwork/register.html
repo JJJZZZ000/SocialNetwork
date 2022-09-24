@@ -28,7 +28,7 @@ Register
             {% endfor %}
         </table>
         {% csrf_token %}
-        <button type="submit">Register</button>
+        <button type="submit" id="id_register_button">Register</button>
     </form>
 
     {% for error in form.non_field_errors %}
