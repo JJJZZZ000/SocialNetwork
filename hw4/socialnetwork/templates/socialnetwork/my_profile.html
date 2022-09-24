@@ -1,24 +1,24 @@
 {% extends "socialnetwork/base.html" %}
 
 {% block user-info %}
-    <div id="id_nav_profile">
-        <a href="{% url 'my_profile' %}">
+    <div>
+        <a href="{% url 'my_profile' %} id="id_nav_profile"">
             {{ name }}
         </a>
     </div>
     <div id="option">
-        <div id="id_nav_global_stream">
-        <a href="{% url 'global_stream' %}">
+        <div>
+        <a href="{% url 'global_stream' %}" id="id_nav_global_stream">
             Global
         </a>
         </div>
-        <div id="id_nav_follower_stream">
-            <a href="{% url 'follower_stream' %}">
+        <div>
+            <a href="{% url 'follower_stream' %}" id="id_nav_follower_stream">
                 Follower
             </a>
         </div>
-        <div id="id_nav_logout">
-            <a href="{% url 'logout' %}">
+        <div>
+            <a href="{% url 'logout' %}" id="id_nav_logout">
                 Logout
             </a>
         </div>

@@ -6,7 +6,12 @@
     color: #eeeeee;
 
 }
-
+label{
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
 #id_bio_input_text{
     width:400px;
     height:200px;
@@ -16,7 +21,7 @@
     border:solid;
     /*text-align:center;*/
     width : 1000px;
-    height : 130px;
+    height : 200px;
     /*align-content: center;*/
     background-color: cornflowerblue;
 }
