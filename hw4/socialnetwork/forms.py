@@ -58,3 +58,30 @@ class RegisterForm(forms.Form):
         # We must return the cleaned data we got from the cleaned_data
         # dictionary
         return username
+    def clean_password(self):
+        # Calls our parent (forms.Form) .clean function, gets a dictionary
+        # of cleaned data as a result
+        cleaned_data = super().clean()
+
+        # Confirms that the two password fields match
+        password1 = cleaned_data.get('password')
+        password2 = cleaned_data.get('confirm_password')
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords did not match.")
+
+        # We must return the cleaned data we got from our parent.
+        return password1
+
+    def clean_confirm_password(self):
+        # Calls our parent (forms.Form) .clean function, gets a dictionary
+        # of cleaned data as a result
+        cleaned_data = super().clean()
+
+        # Confirms that the two password fields match
+        password1 = cleaned_data.get('password')
+        password2 = cleaned_data.get('confirm_password')
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords did not match.")
+
+        # We must return the cleaned data we got from our parent.
+        return password2

@@ -21,7 +21,7 @@ Register
                 <tr>
                     <td>{{field.label_tag}}</td>
                     <td>{{field}}</td>
-                    <td class="error">
+                    <td class="errorlist">
                         {% for error in field.errors %} {{error}} {% endfor %}
                     </td>
                 </tr>
@@ -31,10 +31,10 @@ Register
         <button type="submit" id="id_register_button">Register</button>
     </form>
 
-    {% for error in form.non_field_errors %}
-        <p class="error">
-            {{ error }}
-        </p>
-    {% endfor %}
+{#    {% for error in form.non_field_errors %}#}
+{#        <p class="error">#}
+{#            {{ error }}#}
+{#        </p>#}
+{#    {% endfor %}#}
 
 {% endblock %}
