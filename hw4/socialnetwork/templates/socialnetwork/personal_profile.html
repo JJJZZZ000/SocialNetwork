@@ -31,8 +31,8 @@ Profile page for {{ username }}
 
 {% block content%}
     {% load static%}
-    <img id="id_user_picture" src="{% static 'profile.jpg' %}">
-    <textarea id="id_user_bio">{{ bio }}</textarea><br>
+    <img id="id_user_picture" src="{% static 'profile.jpg' %}"><br>
+    <textarea id="id_user_bio" readonly>{{ bio }}</textarea><br>
     <form action="{% url 'my_profile' %}" method="POST">
         <button type="submit" id="id_unfollow">Unfollow</button>
     {% csrf_token %}

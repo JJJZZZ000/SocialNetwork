@@ -17,6 +17,11 @@ input{
     height:200px;
     resize:none;
 }
+#id_user_bio{
+    width:400px;
+    height:200px;
+    resize:none;
+}
 .head{
     border:solid;
     /*text-align:center;*/

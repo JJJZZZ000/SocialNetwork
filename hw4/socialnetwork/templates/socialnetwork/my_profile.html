@@ -31,7 +31,7 @@ Profile page for {{ name }}
 
 {% block content%}
     {% load static%}
-    <img id="id_user_picture" src="{% static 'profile.jpg' %}">
+    <img id="id_user_picture" src="{% static 'profile.jpg' %}"><br>
     <form action="{% url 'my_profile' %}" method="POST">
         <textarea id="id_bio_input_text" name="bio" >{{ bio }}</textarea><br>
         Profile Picture:<input type="file" id="id_profile_picture"><br>
