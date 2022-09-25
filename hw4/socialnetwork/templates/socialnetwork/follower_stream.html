@@ -32,10 +32,10 @@ Follower Stream
 {% block content%}
     <ul>
         <li>
-            <div id="id_post_div_1">Post by <a id="id_post_profile_1" href="{% url 'personal_profile'%}">Jeff Eppinger</a> -<span id="id_post_text_1" class="text">I waited in line for 15 minutes to get my lunch</span> – <span id="id_post_date_time_1" class="time">8/25/2021 12:10 PM</span></div>
+            <div id="id_post_div_1" class="post">Post by <a id="id_post_profile_1" href="{% url 'personal_profile'%}">Jeff Eppinger</a> -<span id="id_post_text_1" class="text">I waited in line for 15 minutes to get my lunch</span> – <span id="id_post_date_time_1" class="time">8/25/2021 12:10 PM</span></div>
             <ul>
                 <li>
-                    <div id="id_comment_div_1">Comment by <a id="id_comment_profile_1" href="{% url 'personal_profile'%}">Farnam Jahanian</a> -<span id="id_comment_text_1" class="text">Just come to my place. I’ll feed you.</span> - <span id="id_comment_date_time_1" class="time">8/25/2021 1:13 PM</span></div>
+                    <div id="id_comment_div_1" class="comment">Comment by <a id="id_comment_profile_1" href="{% url 'personal_profile'%}">Farnam Jahanian</a> -<span id="id_comment_text_1" class="text">Just come to my place. I’ll feed you.</span> - <span id="id_comment_date_time_1" class="time">8/25/2021 1:13 PM</span></div>
                 </li>
             </ul>
             <form action="{% url 'follower_stream' %}" method="POST">
