@@ -83,7 +83,7 @@ def global_stream_action(request):
     context['name'] = name
     user = request.user
     if request.method == 'GET':
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-date')
         context['posts'] = posts
         return render(request, 'socialnetwork/global_stream.html', context)
     if request.method == 'POST':
@@ -101,7 +101,7 @@ def follower_stream_action(request):
     client = Client.objects.filter(user__id=user.id)[0]
     followings = client.followings.all()
     if request.method == 'GET':
-        posts_ = Post.objects.all()
+        posts_ = Post.objects.all().order_by('-date')
         posts = []
         for post in posts_:
             if followings.contains(post.author):

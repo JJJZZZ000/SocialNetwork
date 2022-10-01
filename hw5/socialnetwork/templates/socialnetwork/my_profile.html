@@ -46,7 +46,7 @@ Profile page for {{ name }}
     </form>
     You are following:<br>
     {% for following in followings %}
-        <a href="{% url 'personal_profile' following.id%}" id="id_profile_link_{{ following.id }}">{{ following.first_name }} {{ following.last_name }}</a>
+        <a href="{% url 'personal_profile' following.id%}" id="id_profile_link_{{ following.username }}">{{ following.first_name }} {{ following.last_name }}</a>
     {% endfor %}
 {#    <a href="{% url 'personal_profile' %}" id="id_profile_link_1">Farnam Jahanian</a>#}
 {% endblock %}

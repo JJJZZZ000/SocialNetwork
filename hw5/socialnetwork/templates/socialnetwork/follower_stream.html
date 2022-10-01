@@ -36,7 +36,7 @@ Follower Stream
             <div id="id_post_div_{{post.id}}" class="post">Post by <a id="id_post_profile_{{post.id}}" href="{% url 'personal_profile' post.author.id %}">{{ post.author.first_name }} {{ post.author.last_name }}</a> -<span id="id_post_text_{{ post.id }}" class="text">{{ post.content }}</span> – <span id="id_post_date_time_{{ post.id }}" class="time">{{ post.date }}</span></div>
             <ul>
                 <li>
-                    <div id="id_comment_div_{{ post.id }}" class="comment">Comment by <a id="id_comment_profile_{{post.id}}" href="{% url 'personal_profile' post.author.id%}">Farnam Jahanian</a> -<span id="id_comment_text_{{ post.i }}" class="text">Just come to my place. I’ll feed you.</span> - <span id="id_comment_date_time_{{ post.i }}" class="time">8/25/2021 1:13 PM</span></div>
+{#                    <div id="id_comment_div_{{ post.id }}" class="comment">Comment by <a id="id_comment_profile_{{post.id}}" href="{% url 'personal_profile' post.author.id%}">Farnam Jahanian</a> -<span id="id_comment_text_{{ post.i }}" class="text">Just come to my place. I’ll feed you.</span> - <span id="id_comment_date_time_{{ post.i }}" class="time">8/25/2021 1:13 PM</span></div>#}
                 </li>
             </ul>
             <form method="post" action="{% url 'follower_stream' %}">

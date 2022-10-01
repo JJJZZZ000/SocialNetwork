@@ -13,7 +13,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     content = models.CharField(max_length=10000)
     date = models.DateTimeField(default=timezone.now)
-
+    # , format = '%m/%d/%Y %H:%M:%S'
     def __str__(self):
         return f'id={self.id}, content="{self.content}"'
 

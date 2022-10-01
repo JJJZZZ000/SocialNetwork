@@ -31,7 +31,13 @@ Profile page for {{ name }}
 
 {% block content%}
     {% load static%}
-    <img id="id_user_picture" src="{% static 'profile.jpg' %}"><br>
+{#    <img id="id_user_picture" src="{% static 'profile.jpg' %}"><br>#}
+    {% if hasPicture %}
+        <img id="id_user_picture" src="{% url 'photo' profile_id %}"><br>
+    {% endif %}
+    {% if not hasPicture %}
+        <img id="id_user_picture" src="{% static 'profile.jpg' %}"><br>
+    {% endif %}
     <textarea id="id_user_bio" readonly>{{ bio }}</textarea><br>
     <form action="{% url 'personal_profile' id%}" method="POST">
         {% if isFollowing %}
