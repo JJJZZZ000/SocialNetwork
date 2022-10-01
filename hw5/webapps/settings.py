@@ -132,4 +132,4 @@ LOGIN_URL = '/socialnetwork/login'
 # The OAuth example will use this
 LOGIN_REDIRECT_URL = '/socialnetwork/'
 MEDIA_ROOT = BASE_DIR / 'images'
-DATETIME_FORMAT = 'm/d/Y h:M P'
+DATETIME_FORMAT = 'n/j/Y g:i A'
