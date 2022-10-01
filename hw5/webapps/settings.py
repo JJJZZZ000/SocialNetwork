@@ -111,6 +111,7 @@ TIME_ZONE = 'US/Eastern'
 USE_I18N = True
 
 USE_TZ = True
+USE_L10N = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -131,4 +132,4 @@ LOGIN_URL = '/socialnetwork/login'
 # The OAuth example will use this
 LOGIN_REDIRECT_URL = '/socialnetwork/'
 MEDIA_ROOT = BASE_DIR / 'images'
-DATETIME_FORMAT = '%m/%d/%Y %H:%M:%S'
+DATETIME_FORMAT = 'm/d/Y h:M P'
