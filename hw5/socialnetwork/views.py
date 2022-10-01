@@ -161,6 +161,12 @@ def personal_profile_action(request, id):
     user = User.objects.filter(id=id)[0]
     my_user = request.user
     context['my_name'] = my_user.first_name+" "+my_user.last_name
+    profile = Profile.objects.filter(user__id=user.id)[0]
+    context['profile_id'] = profile.id
+    if not profile.profile_picture:
+        context['hasPicture'] = False
+    else:
+        context['hasPicture'] = True
     if my_user.id == id:
         return my_profile_action(request)
     profile = Profile.objects.filter(user__id=id)[0]
@@ -169,6 +175,7 @@ def personal_profile_action(request, id):
     context['bio'] = profile.bio
     context['id'] = user.id
     client = Client.objects.filter(user__id=my_user.id)[0]
+
     if request.method == 'GET':
         context['picture'] = profile.profile_picture
         if client.followings.contains(user):
