@@ -1,0 +1,73 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div>
+        <a href="{% url 'my_profile' %}" id="id_nav_profile">
+            {{ name }}
+        </a>
+    </div>
+    <div id="option">
+        <div>
+        <a href="{% url 'global_stream' %}" id="id_nav_global_stream">
+            Global
+        </a>
+        </div>
+        <div>
+            <a href="{% url 'follower_stream' %}" id="id_nav_follower_stream">
+                Follower
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'logout' %}" id="id_nav_logout">
+                Logout
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page %}
+Global Stream
+{% endblock %}
+
+{% block content%}
+    <form method="post" action="{% url 'global_stream' %}">
+        <lable for="id_post_input_text">New Post:</lable>
+        <input type="text" name="new_post" id="id_post_input_text">
+        {% csrf_token %}
+        <button type="submit" id="id_post_button">Submit</button>
+    </form>
+    <ul>
+    {% for post in posts %}
+        <li>
+            <div id="id_post_div_{{post.id}}" class="post">Post by <a id="id_post_profile_{{post.id}}" href="{% url 'personal_profile' post.author.id %}">{{ post.author.first_name }} {{ post.author.last_name }}</a> -<span id="id_post_text_{{ post.id }}" class="text">{{ post.content }}</span> – <span id="id_post_date_time_{{ post.id }}" class="time">{{ post.date }}</span></div>
+            <ul>
+                <li>
+                    <div id="id_comment_div_{{ post.id }}" class="comment">Comment by <a id="id_comment_profile_{{post.id}}" href="{% url 'personal_profile' post.author.id%}">Farnam Jahanian</a> -<span id="id_comment_text_{{ post.i }}" class="text">Just come to my place. I’ll feed you.</span> - <span id="id_comment_date_time_{{ post.i }}" class="time">8/25/2021 1:13 PM</span></div>
+                </li>
+            </ul>
+            <form method="post" action="{% url 'global_stream' %}">
+                <lable for="id_comment_input_text_{{ post.i }}">New Post:</lable>
+                <input type="text" name="new_comment" id="id_comment_input_text_{{ post.i }}">
+                {% csrf_token %}
+                <button id="id_comment_button_{{ post.i }}" type="submit">Submit</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+{#    <ul>#}
+{#        <li>#}
+{#            <div id="id_post_div_1" class="post">Post by <a id="id_post_profile_1" href="{% url 'personal_profile'%}">Jeff Eppinger</a> -<span id="id_post_text_1" class="text">I waited in line for 15 minutes to get my lunch</span> – <span id="id_post_date_time_1" class="time">8/25/2021 12:10 PM</span></div>#}
+{#            <ul>#}
+{#                <li>#}
+{#                    <div id="id_comment_div_1" class="comment">Comment by <a id="id_comment_profile_1" href="{% url 'personal_profile'%}">Farnam Jahanian</a> -<span id="id_comment_text_1" class="text">Just come to my place. I’ll feed you.</span> - <span id="id_comment_date_time_1" class="time">8/25/2021 1:13 PM</span></div>#}
+{#                </li>#}
+{#            </ul>#}
+{#            <form method="post" action="{% url 'global_stream' %}">#}
+{#                <lable for="id_comment_input_text_1">New Post:</lable>#}
+{#                <input type="text" name="new_comment" id="id_comment_input_text_1">#}
+{#                {% csrf_token %}#}
+{#                <button id="id_comment_button_1" type="submit">Submit</button>#}
+{#            </form>#}
+{#        </li>#}
+{#    </ul>#}
+{% endblock %}

@@ -1,0 +1,48 @@
+.page{
+    font-size: 30px;
+}
+.big-heading{
+    font-size: 50px;
+    color: #eeeeee;
+
+}
+label{
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+#id_bio_input_text{
+    width:400px;
+    height:200px;
+    resize:none;
+}
+#id_user_bio{
+    width:400px;
+    height:200px;
+    resize:none;
+}
+.head{
+    border:solid;
+    /*text-align:center;*/
+    width : 1000px;
+    height : 200px;
+    /*align-content: center;*/
+    background-color: cornflowerblue;
+}
+button{
+    font-size: 20px;
+}
+.time{
+    font-style:italic;
+    font-size: 18px;
+}
+.text{
+    font-size: 18px;
+}
+.post{
+    font-size: 18px;
+}
+.comment{
+    font-size: 18px;
+}

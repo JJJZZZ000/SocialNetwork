@@ -1,0 +1,52 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div>
+        <a href="{% url 'my_profile' %}" id="id_nav_profile">
+            {{ name }}
+        </a>
+    </div>
+    <div id="option">
+        <div>
+        <a href="{% url 'global_stream' %}" id="id_nav_global_stream">
+            Global
+        </a>
+        </div>
+        <div>
+            <a href="{% url 'follower_stream' %}" id="id_nav_follower_stream">
+                Follower
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'logout' %}" id="id_nav_logout">
+                Logout
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page %}
+Profile page for {{ name }}
+{% endblock %}
+
+{% block content%}
+    {% load static%}
+    {% if hasPicture %}
+        <img id="id_user_picture" src="{% url 'photo' profile_id %}"><br>
+    {% endif %}
+    {% if not hasPicture %}
+        <img id="id_user_picture" src="{% static 'profile.jpg' %}"><br>
+    {% endif %}
+    <form enctype="multipart/form-data" action="{% url 'my_profile' %}" method="POST">
+        <textarea id="id_bio_input_text" name="bio" >{{ bio }}</textarea><br>
+        {{ form }}
+{#        Profile Picture:<input type="file" id="id_profile_picture" name="picture"><br>#}
+        <button type="submit" id="id_update_profile_button">Submit</button>
+    {% csrf_token %}
+    </form>
+    You are following:<br>
+    {% for following in followings %}
+        <a href="{% url 'personal_profile' following.id%}" id="id_profile_link_{{ following.id }}">{{ following.first_name }} {{ following.last_name }}</a>
+    {% endfor %}
+{#    <a href="{% url 'personal_profile' %}" id="id_profile_link_1">Farnam Jahanian</a>#}
+{% endblock %}
