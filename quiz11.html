@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://www.cmu-webapps.org/quiz11.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>quiz11</title>
+        <style>
+            li {
+                font-size: 20px;
+                margin: 4px;
+            }
+            textarea {
+                width:700px;
+                height:80px;
+                font-size: large;
+                font-family: sans-serif;
+                padding: 7px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>
+            Lecture #11 Quiz
+        </h1>
+        <ol>
+            <li>In another browser tab, go to
+                <a href="https://www.cmu-webapps.org/ajax_todolist" target="_blank">
+                    https://www.cmu-webapps.org/ajax_todolist
+                </a>
+                and look in the page's code to find the URL which returns the current To Do list in JSON format.
+                Load this URL in a new tab.  Can you see the JSON data for the To Do list?
+            </li>
+            <li>The US National Weather Service provides a free
+                <a href="https://www.weather.gov/documentation/services-web-api" target="_blank">
+                    weather data API
+                </a>.
+                In another browser tab, go to
+                <a href="https://api.weather.gov/gridpoints/PBZ/80,40/forecast" target="_blank">
+                    https://api.weather.gov/gridpoints/PBZ/80,40/forecast
+                </a>
+                to see the current forecase for Pittsburgh.  Can you see the JSON data for the current weather forecast?
+            </li>
+
+            <li>
+                Save the HTML source from this Quiz #11 HTML page into a file called
+                <kbd>quiz11.html</kbd> into the <strong>top-level</strong> directory of your class repo.
+            </li>
+            <li>
+                Add and commit your <kbd>quiz11.html</kbd> file:
+                    <ul>
+                        <li><kbd>git add quiz11.html</kbd></li>
+                        <li><kbd>git commit -m "Download of quiz11.html, before modification."</kbd></li>
+                    </ul>
+            </li>
+            <li>
+                Add JavaScript (to your <kbd>quiz11.html</kbd> file) to use AJAX to:
+                    <ol>
+                        <li>Fetch the current To Do list from the URL you found in step 1, above, and display the list in the To Do List &lt;div&gt; below.</li>
+                        <li>Fetch the current weather forecast from the URL you found in step 2, above, and display it (at least some of it) in the Weather Forecast &lt;textarea&gt; below.</li>
+                    </ol>
+            </li>
+            <li>
+                Add, commit, and push your changes:
+                    <ul>
+                        <li><kbd>git add quiz11.html</kbd></li>
+                        <li><kbd>git commit -m "Working quiz11 submitted."</kbd></li>
+                        <li><kbd>git push</kbd></li>
+                    </ul>
+            </li>
+        </ol>
+        <hr>
+        <h2>The Current Pittsburgh Weather Forecast</h2>
+        <textarea id="forecast">            This is the Weather Forecast &lt;textarea&gt;
+        </textarea>
+        <hr>
+        <h2>The Current To Do List</h2>
+        <div id="todolist">
+            <ol id="todo-list">
+                <li>This is the To Do List &lt;div&gt;</li>
+                <li>(Actually, it's an ordered list in the &lt;div&gt;)</li>
+                <li>Feel free to modify the HTML here to suit your needs.</li>
+            </ol>
+        </div>
+    
+
+</body></html>
