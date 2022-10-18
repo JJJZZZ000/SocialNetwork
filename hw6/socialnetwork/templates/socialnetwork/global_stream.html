@@ -1,0 +1,49 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div>
+        <a href="{% url 'my_profile' %}" id="id_nav_profile">
+            {{ name }}
+        </a>
+    </div>
+    <div id="option">
+        <div>
+        <a href="{% url 'global_stream' %}" id="id_nav_global_stream">
+            Global
+        </a>
+        </div>
+        <div>
+            <a href="{% url 'follower_stream' %}" id="id_nav_follower_stream">
+                Follower
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'logout' %}" id="id_nav_logout">
+                Logout
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page %}
+Global Stream
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'global_stream' %}">
+        <label for="id_post_input_text">New Post:</label>
+        <input type="text" name="new_post" id="id_post_input_text">
+
+        <button type="submit" id="id_post_button">Submit</button>
+        {% csrf_token %}
+    </form>
+    <input id="tab_type" type="hidden">
+    <ul id="post_list">
+    </ul>
+
+    <script>
+    window.onload = getCommentForGlobal
+    window.setInterval(getCommentForGlobal, 5000)
+    const addCommentURL = "{% url 'add-comment' %}"
+    </script>
+{% endblock %}
