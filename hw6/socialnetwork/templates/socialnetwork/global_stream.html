@@ -43,8 +43,8 @@ Global Stream
 
 
     <script>
-    window.onload = getCommentForGlobal
-    window.setInterval(getCommentForGlobal, 5000)
+    window.onload = getGlobalComment
+    window.setInterval(getGlobalComment, 5000)
     const addCommentURL = "{% url 'add-comment' %}"
     </script>
 {% endblock %}

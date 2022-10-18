@@ -1,57 +1,31 @@
-
-
-function getCommentForGlobal() {
-    let xhr = new XMLHttpRequest()
-    xhr.onreadystatechange = function() {
-        if (this.readyState !== 4) {
-            return
-        }
-        updatePage(xhr)
-    }
-
-    xhr.open("GET", "/socialnetwork/get-global", true)
-    xhr.send()
-}
-
-function getCommentForFollower() {
-    let xhr = new XMLHttpRequest()
-    xhr.onreadystatechange = function() {
-        if (this.readyState !== 4) return
-        updatePage(xhr)
-    }
-
-    xhr.open("GET", "/socialnetwork/get-follower", true)
-    xhr.send()
-}
-
-function updatePage(xhr) {
+function pageUpdate(xhr) {
     if (xhr.status === 200) {
         let response = JSON.parse(xhr.responseText)
-        updateComment(response)
+        commentUpdate(response)
         return
     }
     if (xhr.status === 0) {
-        displayError("Cannot connect to server")
+        errorMsg("Unable to connect")
         return
     }
     if (!xhr.getResponseHeader('content-type') === 'application/json') {
-        displayError("Received status=" + xhr.status)
+        errorMsg("Received status=" + xhr.status)
         return
     }
     let response = JSON.parse(xhr.responseText)
     if (response.hasOwnProperty('error')) {
-        displayError(response.error)
+        errorMsg(response.error)
         return
     }
-    displayError(response)
+    errorMsg(response)
 }
 
-function displayError(message) {
+function errorMsg(message) {
     let errorElement = document.getElementsByClassName("error")
     errorElement.innerHTML = message
 }
 
-function updateComment(response) {
+function commentUpdate(response) {
     // Removes the post items
     let posts = document.getElementById("post_list")
     console.log(posts)
@@ -107,7 +81,7 @@ function updateComment(response) {
                 '<span id="id_post_text_' + post.id + '" class="text">' +
                 post.texts +
                 '</span> – <span id="id_post_date_time_' + post.id + '" class="time">' +
-                format(post.date) +
+                dateFormat(post.date) +
                 "</span></div>";
         }
 
@@ -150,7 +124,7 @@ function updateComment(response) {
             '<span id="id_comment_text_' + comment.id + '" class="text">' +
             comment.texts +
             '</span> – <span id="id_comment_date_time_' + comment.id + '" class="time">' +
-            format(comment.date) +
+            dateFormat(comment.date) +
             "</span></div>"
 
             if(comments.firstChild != null) {
@@ -172,10 +146,32 @@ function updateComment(response) {
         if(post.id === 9) {
             console.log(posts)
         }
-        // 记录已经有的postid，commentid，遇到这些就跳过
-        // 记录输入框写了文字的 遇到就跳过
     }
     console.log(posts)
+}
+
+function getGlobalComment() {
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+        if (this.readyState !== 4) {
+            return
+        }
+        pageUpdate(xhr)
+    }
+
+    xhr.open("GET", "/socialnetwork/get-global", true)
+    xhr.send()
+}
+
+function getFollowerComment() {
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+        if (this.readyState !== 4) return
+        pageUpdate(xhr)
+    }
+
+    xhr.open("GET", "/socialnetwork/get-follower", true)
+    xhr.send()
 }
 
 function addComment(id, tab) {
@@ -183,20 +179,20 @@ function addComment(id, tab) {
     let itemTextValue   = itemTextElement.value
 
     itemTextElement.value = ''
-    displayError('')
+    errorMsg('')
 
     let xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
         if (xhr.readyState !== 4) return
-        updatePage(xhr)
+        pageUpdate(xhr)
     }
 
     xhr.open("POST", addCommentURL, true)
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    xhr.send("req_type=" + tab + "&post_id=" + id + "&comment_text=" + itemTextValue + "&csrfmiddlewaretoken="+getCSRFToken())
+    xhr.send("req_type=" + tab + "&post_id=" + id + "&comment_text=" + itemTextValue + "&csrfmiddlewaretoken="+CSRFToken())
 }
 
-function getCSRFToken() {
+function CSRFToken() {
     let cookies = document.cookie.split(";")
     for (let i = 0; i < cookies.length; i++) {
         let c = cookies[i].trim()
@@ -207,7 +203,7 @@ function getCSRFToken() {
     return "unknown"
 }
 
-function format(date){
+function dateFormat(date){
     var now = new Date(date);
     var y = now.getFullYear();
     var m = now.getMonth();

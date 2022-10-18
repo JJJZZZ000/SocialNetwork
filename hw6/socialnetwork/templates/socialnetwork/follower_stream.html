@@ -38,8 +38,8 @@ Follower Stream
 
 </ul>
     <script>
-    window.onload = getCommentForFollower
-    window.setInterval(getCommentForFollower, 5000)
+    window.onload = getFollowerComment
+    window.setInterval(getFollowerComment, 5000)
     const addCommentURL = "{% url 'add-comment' %}"
     </script>
 {% endblock %}
