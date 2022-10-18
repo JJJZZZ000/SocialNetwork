@@ -100,7 +100,7 @@ function updateComment(response) {
             element.id = "post_list_" + post.id
             element.innerHTML = '<div id="id_post_div_'+post.id +'" class="post">' +
                 "Post by" +
-                '<a id="id_post_profile_' + post.id +'" href="other_profile/' + post.author_id + '">' +
+                '<a id="id_post_profile_' + post.id +'" href="personal_profile/' + post.author_id + '">' +
                 post.first_name + " " + post.last_name +
                 '</a>' +
                 " - " +
@@ -143,7 +143,7 @@ function updateComment(response) {
             let comment_element = document.createElement("li")
             comment_element.innerHTML = '<div id="id_comment_div_' + comment.id+ '" class="comment">' +
             "Comment by" +
-            '<a id="id_comment_profile_' + comment.id + '" href="other_profile/' + comment.author_id + '">' +
+            '<a id="id_comment_profile_' + comment.id + '" href="personal_profile/' + comment.author_id + '">' +
             comment.comment_first_name + " " + comment.comment_last_name +
             '</a>' +
             " - " +
