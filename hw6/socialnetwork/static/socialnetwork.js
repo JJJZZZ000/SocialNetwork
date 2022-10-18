@@ -108,6 +108,7 @@ function commentUpdate(response) {
             continue
         }
 
+
         let temp = post.comments
         for(let j = temp.length-1;j>=0;j--) {
             let comment = temp[j]
