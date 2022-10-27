@@ -1,4 +1,5 @@
-1) Andrew ID: jiezhu2
+1) The URL to access my homework solution is http://18.204.212.168/
+2) Andrew ID: jiezhu2
 2) Name: Jie Zhu
 3) Homework: #7
 4) Andrew IDs of students that I consulted on this homework: None
